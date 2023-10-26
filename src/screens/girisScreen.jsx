@@ -44,7 +44,7 @@ const GirisScreen = ({ navigation, route }) => {
             <View style={{ flexDirection: 'row', width: '100%', justifyContent: 'space-between' }}>
                 <TouchableOpacity style={styles.btnView}>
                     <Text style={styles.btnTxt}>
-                        Rastgele Antreman
+                        Rastgele 
                     </Text>
                 </TouchableOpacity>
                 <TouchableOpacity 
@@ -101,10 +101,11 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         alignItems: 'center',
         width: '40%',
-        padding: 10
+        padding: 15,
+        justifyContent:'center'
     },
     btnTxt: {
-        fontSize: 12,
+        fontSize: 16,
         fontWeight: 'bold',
         textAlign: 'center',
         color: 'white'

@@ -5,8 +5,8 @@ import { useLayoutEffect } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { ScreenStack } from "react-native-screens";
 import GirisScreen from "./src/screens/girisScreen";
-import DetayScreen from "./src/screens/detayScreen";
-import GecmisScreen from "./src/screens/gecmisScreen";
+import SplitScreen from "./src/screens/splitScreen";
+
 
 const App = () => {
   const Stack = createNativeStackNavigator()
@@ -23,22 +23,15 @@ const App = () => {
         }}
        
       ></Stack.Screen>
-        <Stack.Screen
-        name='DetayScreen'
-        component={DetayScreen}
-        options={{
-          headerShown:false
-        }}
-       
-      ></Stack.Screen>
       <Stack.Screen
-        name='GecmisScreen'
-        component={GecmisScreen}
+        name='SplitScreen'
+        component={SplitScreen}
         options={{
           headerShown:false
         }}
        
       ></Stack.Screen>
+       
     </Stack.Navigator>
   </NavigationContainer>
   )

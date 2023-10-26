@@ -1,124 +1,71 @@
 import React, { useState } from "react";
-import { Text, View, StyleSheet, TouchableOpacity, Image, TextInput } from "react-native";
+import { Text, View, StyleSheet, TouchableOpacity, Image, TextInput, SafeAreaView } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { useEffect } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { MMKVLoader, useMMKVStorage } from "react-native-mmkv-storage";
-
+import MainLogo from "../assets/icons/MainLogo";
+import EatIcon from "../assets/icons/eaticon";
+import BedIcon from "../assets/icons/bedIcon";
+import RepeatIcon from "../assets/icons/repeatIcon";
+import TrainIcon from "../assets/icons/trainIcon";
 const MMKV = new MMKVLoader().initialize()
-import HistoryIcon from "../assets/icons/historyIcon";
-import SaveIcon from "../assets/icons/saveIcon";
-const GirisScreen = ({ navigation, route }) => {
 
-    let [anilar1, SetAnilar1] = useMMKVStorage('ani1', MMKV, [])
-    let [baslik, SetBaslik] = useState('')
-    let [icerik, SetIcerik] = useState('')
-    let [tarih, setTarih] = useState('')
-    let [ay, setAy] = useState('')
-    let [tarihAy, setTarihAy] = useState('')
-    let index = 0
-    console.log(anilar1)
+const GirisScreen = ({ navigation, route }) => {
 
     return (
 
-        <View style={styles.arkaplan}>
-            <View style={{ marginTop: 70 }}>
-                <TextInput
-                    placeholder="Hatırlamak istediğiniz anı için başlık giriniz."
-                    textAlign="center"
-                    style={styles.baslikTxt}
-                    placeholderTextColor={'black'}
-                    value={baslik}
-                    onChangeText={SetBaslik}
-                >
-
-                </TextInput>
-                <TextInput
-                    placeholder="Hatırlamak istediğiniz anıyı giriniz."
-                    textAlign="center"
-                    style={styles.icerikTxt}
-                    value={icerik}
-                    onChangeText={SetIcerik}
-                >
-
-                </TextInput>
+        <SafeAreaView style={styles.arkaplan}>
+            <View style={styles.mainLogoView}>
+                <MainLogo></MainLogo>
             </View>
-            <View style={styles.btnView}>
-                <TouchableOpacity
-                    onPress={() => {
-
-                        navigation.navigate('GecmisScreen')
-                    }}
-                    style={styles.historyBtn}>
-                    <HistoryIcon></HistoryIcon>
-                    <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 15 }}>   Geçmiş anılarını gör   </Text>
+            <View style={{ width: '100%', alignItems: 'center' }}>
+                <Text style={styles.dateTxt}>26   EKİM   2023</Text>
+            </View>
+            <View>
+                <View style={styles.mainView}>
+                    <Text style={{ ...styles.dateTxt, fontSize: 24, }}>EAT</Text>
+                    <EatIcon></EatIcon>
+                </View>
+                <View style={styles.mainView}>
+                    <Text style={{ ...styles.dateTxt, fontSize: 24, }}>SLEEP</Text>
+                    <BedIcon></BedIcon>
+                </View>
+                <View style={styles.mainView}>
+                    <Text style={{ ...styles.dateTxt, fontSize: 24, }}>TRAIN</Text>
+                    <TrainIcon></TrainIcon>
+                </View>
+                <View style={styles.mainView}>
+                    <Text style={{ ...styles.dateTxt, fontSize: 24, }}>REPEAT</Text>
+                    <RepeatIcon></RepeatIcon>
+                </View>
+            </View>
+            <View style={{ flexDirection: 'row', width: '100%', justifyContent: 'space-between' }}>
+                <TouchableOpacity style={styles.btnView}>
+                    <Text style={styles.btnTxt}>
+                        Rastgele Antreman
+                    </Text>
                 </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={() => {
-                        const now = new Date();
-                        const day = String(now.getDate()).padStart(2, '0');
-                        const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed in JavaScript
-                        const year = now.getFullYear();
-
-                        if (month == '01') {
-                            SetAy('Ocak')
-                        } else if (month == '02') {
-                            setAy('Şubat')
-                        } else if (month == '03') {
-                            setAy('Mart')
-                        } else if (month == '04') {
-                            setAy('Nisan')
-                        } else if (month == '05') {
-                            setAy('Mayıs')
-                        } else if (month == '06') {
-                            setAy('Haziran')
-                        } else if (month == '07') {
-                            setAy('Temmuz')
-                        } else if (month == '08') {
-                            setAy('Ağustos')
-                        } else if (month == '09') {
-                            setAy('Eylül')
-                        } else if (month == '10') {
-                            setAy('Ekim')
-                        } else if (month == '11') {
-                            setAy('Kasım')
-                        } else if (month == '12') {
-                            setAy('Aralık')
-                        }
-
-                        setTarih(day + '-' + month + '-' + year)
-                        setTarihAy(day + '-' + ay + '-' + year)
-                        SetBaslik('')
-                        SetIcerik('')
-                        if (baslik !== '' && icerik !== '' && tarih !== '') {
-                            SetAnilar1([
-                                {
-                                    baslik: baslik,
-                                    icerik: icerik,
-                                    tarih: tarih,
-                                    tarihAy: tarihAy,
-                                },
-                                ...anilar1,
-                            ])
-
-                            navigation.navigate('DetayScreen', {
-                                index: index
-                            }
-                            )
-                        } else {
-
-                        }
-
-
-                    }}
-                    style={styles.saveBtn}>
-                    <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 15 }}>   Kaydet   </Text>
-                    <SaveIcon></SaveIcon>
+                <TouchableOpacity 
+                onPress={()=>{
+                    navigation.navigate('SplitScreen')
+                }}
+                style={styles.btnView}>
+                    <Text style={styles.btnTxt}>
+                        Antreman Planı
+                    </Text>
+                </TouchableOpacity>
+            </View>
+            <View style={{ alignItems: 'center' }}>
+                <TouchableOpacity style={styles.btnView}>
+                    <Text style={styles.btnTxt}>
+                        Beslenme Planı
+                    </Text>
                 </TouchableOpacity>
             </View>
 
-        </View>
+        </SafeAreaView>
 
     )
 }
@@ -126,53 +73,45 @@ const styles = StyleSheet.create({
     arkaplan: {
         width: '100%',
         height: '100%',
-        backgroundColor: 'gray',
-        justifyContent: 'space-between',
+        backgroundColor: '#DB8E1A',
         paddingHorizontal: 20,
-        paddingVertical: 40
-
+        paddingVertical: 40,
+        justifyContent: 'space-between'
     },
-    baslikTxt: {
-        fontFamily: 'Lora-SemiBold',
-        fontSize: 17,
-        color: 'black',
-        borderBottomWidth: 2,
+    mainLogoView: {
+        justifyContent: 'center',
+        alignItems: 'center'
     },
-    icerikTxt: {
-        fontFamily: 'Lora-Regular',
-        fontSize: 16,
+    dateTxt: {
+        fontSize: 42,
+        fontWeight: 'bold',
         textAlign: 'center',
-        height: '40%'
+        color: 'black'
+    },
+    mainView: {
+        width: '100%',
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 20
+
     },
     btnView: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: 10,
-
-    },
-    historyBtn: {
+        backgroundColor: 'black',
         borderRadius: 20,
-        height: '100%',
-        width: '50%',
-        padding: 14,
-        flexDirection: 'row',
-        justifyContent: 'space-around',
         alignItems: 'center',
-        backgroundColor: '#FFD700',
-
-
+        width: '40%',
+        padding: 10
     },
-    saveBtn: {
-        borderRadius: 20,
-        borderColor: '#FFD700',
-        width: '35%',
-        padding: 14,
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        alignItems: 'center',
-        backgroundColor: '#FFD700',
+    btnTxt: {
+        fontSize: 12,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        color: 'white'
     }
+
+
+
 
 
 })

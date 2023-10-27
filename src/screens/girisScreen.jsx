@@ -14,7 +14,46 @@ const MMKV = new MMKVLoader().initialize()
 
 const GirisScreen = ({ navigation, route }) => {
     let [antreman, SetAntreman] = useMMKVStorage('ant',MMKV,[])
+    let [tarihAy, setTarihAy] = useState('')
+    let [ay, setAy] = useState('')
+
+let ChoseMonth = () =>{
+    const now = new Date();
+        const day = String(now.getDate()).padStart(2, '0');
+        const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed in JavaScript
+        const year = now.getFullYear();
+    if (month == '01') {
+        SetAy('Ocak')
+    } else if (month == '02') {
+        setAy('Şubat')
+    } else if (month == '03') {
+        setAy('Mart')
+    } else if (month == '04') {
+        setAy('Nisan')
+    } else if (month == '05') {
+        setAy('Mayıs')
+    } else if (month == '06') {
+        setAy('Haziran')
+    } else if (month == '07') {
+        setAy('Temmuz')
+    } else if (month == '08') {
+        setAy('Ağustos')
+    } else if (month == '09') {
+        setAy('Eylül')
+    } else if (month == '10') {
+        setAy('Ekim')
+    } else if (month == '11') {
+        setAy('Kasım')
+    } else if (month == '12') {
+        setAy('Aralık')
+    }
+
+   
+   setTarihAy(day + ' - ' + ay + ' - ' + year)
+   return  <Text style={styles.dateTxt}>{tarihAy}</Text>
+}
     useEffect(()=>{
+
 SetAntreman(MMKV.getMap('ant'))
     SetAntreman([
         {
@@ -202,7 +241,7 @@ console.log(antreman)
                 <MainLogo></MainLogo>
             </View>
             <View style={{ width: '100%', alignItems: 'center' }}>
-                <Text style={styles.dateTxt}>26   EKİM   2023</Text>
+                <ChoseMonth></ChoseMonth>
             </View>
             <View>
                 <View style={styles.mainView}>

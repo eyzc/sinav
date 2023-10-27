@@ -51,35 +51,35 @@ const imageResources = (imageName) => {
 
 const TraningFlatlist = ({ navigation, route }) => {
     const Arm = () =>{
-        if ( antreman[index].name == 'ARM') {
+        if ( antreman[index].name !== 'ARM') {
            
-            return <View style={{...styles.sideView,backgroundColor:'white'}}>
-     <Text style={{...styles.sideTxt,color:'#DB8E1A'}}> İyi Antremanlar</Text>
+            return <View style={{...styles.sideView,backgroundColor:'white',}}>
+            <Text style={{...styles.sideTxt,color:'#DB8E1A',fontSize:12}}>Kol antremanıyla devam etmek ister misiniz?</Text>
+            <View style={{flexDirection:'row',justifyContent:'space-between'}}>
+            <TouchableOpacity
+            onPress={()=>{
+                SetDetails(antreman[2].details)
+                navigation.navigate('TraningFlatlist',{
+                    index:2
+                })
+            }}
+            >
+                <Text style={{...styles.sideTxt,color:'#DB8E1A',fontSize:16,marginRight:20}}>Evet</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+            onPress={()=>{
+                navigation.navigate('GirisScreen')
+            }}
+            >
+                <Text style={{...styles.sideTxt,color:'#DB8E1A',fontSize:16,marginLeft:20}}>Hayır</Text>
+            </TouchableOpacity>
             </View>
-       
+           
+        </View>
            
            
         }else {
-          return  <View style={{...styles.sideView,backgroundColor:'white',}}>
-                <Text style={{...styles.sideTxt,color:'#DB8E1A',fontSize:24}}> İyi Antremanlar</Text>
-                <Text style={{...styles.sideTxt,color:'#DB8E1A',fontSize:12}}>Kol antremanıyla devam etmek ister misiniz?</Text>
-                <View style={{flexDirection:'row',justifyContent:'space-between'}}>
-                <TouchableOpacity
-                onPress={()=>{
-                    SetDetails(antreman[2].details)
-                    navigation.navigate('TraningFlatlist',{
-                        index:2
-                    })
-                }}
-                >
-                    <Text style={{...styles.sideTxt,color:'#DB8E1A',fontSize:16,marginRight:20}}>Evet</Text>
-                </TouchableOpacity>
-                <TouchableOpacity>
-                    <Text style={{...styles.sideTxt,color:'#DB8E1A',fontSize:16,marginLeft:20}}>Hayır</Text>
-                </TouchableOpacity>
-                </View>
-               
-            </View>
+        
         }
     }
     let [antreman, SetAntreman] = useMMKVStorage('ant', MMKV, [])

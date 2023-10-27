@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { ScreenStack } from "react-native-screens";
 import GirisScreen from "./src/screens/girisScreen";
 import SplitScreen from "./src/screens/splitScreen";
+import DetailsScreen from "./src/screens/traningDetails";
 
 
 const App = () => {
@@ -31,7 +32,14 @@ const App = () => {
         }}
        
       ></Stack.Screen>
+       <Stack.Screen
+        name='DetailsScreen'
+        component={DetailsScreen}
+        options={{
+          headerShown:false
+        }}
        
+      ></Stack.Screen>
     </Stack.Navigator>
   </NavigationContainer>
   )

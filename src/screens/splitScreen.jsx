@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { MMKVLoader, useMMKVStorage } from "react-native-mmkv-storage";
 import MainLogo from "../assets/icons/MainLogo";
 import BackIcon from "../assets/icons/backIcon";
+import NextIcon from "../assets/icons/nextIcon";
 const MMKV = new MMKVLoader().initialize()
 
 const SplitScreen = ({ navigation, route }) => {
@@ -28,7 +29,11 @@ let antreman = [
             data={antreman}
             renderItem={element =>{
                 return(
-                    <TouchableOpacity style={styles.btnView}>
+                    <TouchableOpacity 
+                    onPress={()=>{
+                        navigation.navigate('DetailsScreen')
+                    }}
+                    style={styles.btnView}>
                         <Text style={styles.btnTxt}> 
 {element.item}
                         </Text>

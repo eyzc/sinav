@@ -93,7 +93,8 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 20
+        marginBottom: 20,
+        borderBottomWidth:2
 
     },
     btnView: {
@@ -102,7 +103,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: '40%',
         padding: 15,
-        justifyContent:'center'
+        justifyContent:'center',
+
     },
     btnTxt: {
         fontSize: 16,

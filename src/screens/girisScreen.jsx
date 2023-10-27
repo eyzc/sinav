@@ -18,7 +18,7 @@ const GirisScreen = ({ navigation, route }) => {
 SetAntreman(MMKV.getMap('ant'))
     SetAntreman([
         {
-            name:'GOGUS',
+            name:'CHEST',
             details:[
                 {
                     isim:'Bench Press',
@@ -51,16 +51,145 @@ SetAntreman(MMKV.getMap('ant'))
             ]
         },
         {
-            name:'OMUZ'
+            name:'SHOULDER',
+            details:[
+                {
+                    isim:'Shoulder Press',
+                    rep:'12',
+                    set:'4',
+                    png:'../assets/png/shoulderpress.png',
+                    pngName:'ShoulderPress'
+                },
+                {
+                    isim:'Shoulder Fly',
+                    rep:'12',
+                    set:'4',
+                    png:'../assets/png/shoulderfly.png',
+                    pngName:'ShoulderFly'
+                },
+                {
+                    isim:'Front Shoulder Fly',
+                    rep:'12',
+                    set:'3',
+                    png:'../assets/png/frontshoulder.png',
+                    pngName:'FrontShoulder'
+                },
+                {
+                    isim:'Back Shoulder Machine Fly',
+                    rep:'12',
+                    set:'3',
+                    png:'../assets/png/backshoulder.png',
+                    pngName:'BackShoulder'
+                }
+            ]
         },
         {
-            name:'KOL'
+            name:'ARM',
+            details:[
+                {
+                    isim:'Rope PushDown',
+                    rep:'12',
+                    set:'4',
+                    png:'../assets/png/rope.png',
+                    pngName:'RopePushdown'
+                },
+                {
+                    isim:'Cable Push Down',
+                    rep:'15',
+                    set:'4',
+                    png:'../assets/png/pushdown.png',
+                    pngName:'CablePushDown'
+                },
+                {
+                    isim:'Dumbell Biceps Curl',
+                    rep:'10 x 2',
+                    set:'3',
+                    png:'../assets/png/bicepscurl.png',
+                    pngName:'BicepsCurl'
+                },
+                {
+                    isim:'Z Bar Biceps Curl',
+                    rep:'15',
+                    set:'3',
+                    png:'../assets/png/zbarbiceps.png',
+                    pngName:'ZBarCurl'
+                }
+            ]
         },
         {
-            name:'BACAK'
+            name:'LEG',
+            details:[
+                {
+                    isim:'Squat',
+                    rep:'10',
+                    set:'4',
+                    png:'../assets/png/squat.png',
+                    pngName:'Squat'
+                },
+                {
+                    isim:'Leg Press',
+                    rep:'15',
+                    set:'4',
+                    png:'../assets/png/legpress.png',
+                    pngName:'LegPress'
+                },
+                {
+                    isim:'Leg Curl',
+                    rep:'12',
+                    set:'4',
+                    png:'../assets/png/legcurl.png',
+                    pngName:'LegCurl'
+                },
+                {
+                    isim:'Leg Extension',
+                    rep:'15',
+                    set:'3',
+                    png:'../assets/png/legEx.png',
+                    pngName:'LegEx'
+                },
+                {
+                    isim:'Hip Trust',
+                    rep:'12',
+                    set:'4',
+                    png:'../assets/png/hiptrust.png',
+                    pngName:'HipTrust'
+                },
+
+            ]
         },
         {
-            name:'SIRT'
+            name:'BACK',
+            details:[
+                {
+                    isim:'Lat Pull Down',
+                    rep:'12',
+                    set:'4',
+                    png:'../assets/png/pulldown.png',
+                    pngName:'PullDown'
+                },
+                {
+                    isim:'Lat Low Row',
+                    rep:'12',
+                    set:'4',
+                    png:'../assets/png/lowrow.png',
+                    pngName:'LatLowRow'
+                },
+              
+                {
+                    isim:'Single Lat Pull',
+                    rep:'12 x 2',
+                    set:'3',
+                    png:'../assets/png/singlelatpull.png',
+                    pngName:'SingleLatPull'
+                },
+                {
+                    isim:'Dumbell Row',
+                    rep:'12 x 2',
+                    set:'4',
+                    png:'../assets/png/dumbellrow.png',
+                    pngName:'DumbellRow'
+                },
+            ]
         },
     ])
 }

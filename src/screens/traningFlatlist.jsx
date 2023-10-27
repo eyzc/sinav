@@ -23,6 +23,23 @@ const imageResources = (imageName) => {
         'InclinePress': require('../assets/png/inclinepress.png'),
         'CableFly': require('../assets/png/cablefly.png'),
         'ButterFly': require('../assets/png/butterfly.png'),
+        'ShoulderPress': require('../assets/png/shoulderpress.png'),
+        'ShoulderFly': require('../assets/png/shoulderfly.png'),
+        'FrontShoulder': require('../assets/png/frontshoulder.png'),
+        'BackShoulder': require('../assets/png/backshoulder.png'),
+        'RopePushdown': require('../assets/png/rope.png'),
+        'CablePushDown': require('../assets/png/pushdown.png'),
+        'BicepsCurl': require('../assets/png/bicepscurl.png'),
+        'ZBarCurl': require('../assets/png/zbarbiceps.png'),
+        'Squat': require('../assets/png/squat.png'),
+        'LegPress': require('../assets/png/legpress.png'),
+        'LegCurl': require('../assets/png/legcurl.png'),
+        'LegEx': require('../assets/png/legEx.png'),
+        'HipTrust': require('../assets/png/hiptrust.png'),
+        'PullDown': require('../assets/png/pulldown.png'),
+        'LatLowRow': require('../assets/png/lowrow.png'),
+        'SingleLatPull': require('../assets/png/singlelatpull.png'),
+        'DumbellRow': require('../assets/png/dumbellrow.png'),
     }
     if (staticImage[imageName]) {
         return (staticImage[imageName])

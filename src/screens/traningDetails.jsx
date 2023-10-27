@@ -16,30 +16,38 @@ import NextIcon from "../assets/icons/nextIcon";
 const MMKV = new MMKVLoader().initialize()
 
 const DetailsScreen = ({ navigation, route }) => {
-let antreman = [
-    'GOGUS',
-    'KOL',
-    'BACAK',
-    'OMUZ',
-    'SIRT'
-]
+    let [antreman, SetAntreman] = useMMKVStorage('ant',MMKV,[])
+    let [details, SetDetails] = useState([antreman[0].details])
+    let index = route.params.index
+    console.log(index)
+    console.log(antreman[0].details)
+
     return (
 
         <SafeAreaView style={styles.arkaplan}>
             <View style={styles.mainLogoView}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                onPress={()=>{
+                    navigation.navigate('SplitScreen')
+                }}
+                >
                 <BackIcon></BackIcon>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                
                 <SmallMainLogo></SmallMainLogo>
-                </TouchableOpacity>
-                <TouchableOpacity>
+                
+                <TouchableOpacity
+                   onPress={()=>{
+                    navigation.navigate('GirisScreen')
+                }}
+                >
+
                 <HomeIcon></HomeIcon>
                 </TouchableOpacity>
                 
             </View>
             <View style={styles.sideView}>
-                <Text style={styles.sideTxt}>Göğüs</Text>
+                <Text style={styles.sideTxt}>sadasdsadsa</Text>
             </View>
             <View style={styles.imgView}>
             <Image source={BenchPress}></Image>
@@ -94,8 +102,8 @@ const styles = StyleSheet.create({
         color:'white'
     },
     imgView:{
-        
-        
+        resizeMode:'stretch',
+        width:'100%',
         alignItems:'center'
     },
     iconView:{

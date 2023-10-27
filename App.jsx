@@ -7,6 +7,7 @@ import { ScreenStack } from "react-native-screens";
 import GirisScreen from "./src/screens/girisScreen";
 import SplitScreen from "./src/screens/splitScreen";
 import DetailsScreen from "./src/screens/traningDetails";
+import TraningFlatlist from "./src/screens/traningFlatlist";
 
 
 const App = () => {
@@ -35,6 +36,14 @@ const App = () => {
        <Stack.Screen
         name='DetailsScreen'
         component={DetailsScreen}
+        options={{
+          headerShown:false
+        }}
+       
+      ></Stack.Screen>
+       <Stack.Screen
+        name='TraningFlatlist'
+        component={TraningFlatlist}
         options={{
           headerShown:false
         }}

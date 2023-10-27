@@ -11,13 +11,8 @@ import NextIcon from "../assets/icons/nextIcon";
 const MMKV = new MMKVLoader().initialize()
 
 const SplitScreen = ({ navigation, route }) => {
-let antreman = [
-    'GOGUS',
-    'KOL',
-    'BACAK',
-    'OMUZ',
-    'SIRT'
-]
+    let [antreman, SetAntreman] = useMMKVStorage('ant',MMKV,[])
+
     return (
 
         <SafeAreaView style={styles.arkaplan}>
@@ -31,11 +26,15 @@ let antreman = [
                 return(
                     <TouchableOpacity 
                     onPress={()=>{
-                        navigation.navigate('DetailsScreen')
+                        navigation.navigate('TraningFlatlist',{
+                            index:element.index
+                        }
+                        
+                        )
                     }}
                     style={styles.btnView}>
                         <Text style={styles.btnTxt}> 
-{element.item}
+{element.item.name}
                         </Text>
                     </TouchableOpacity>
                 )

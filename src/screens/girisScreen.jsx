@@ -13,7 +13,59 @@ import TrainIcon from "../assets/icons/trainIcon";
 const MMKV = new MMKVLoader().initialize()
 
 const GirisScreen = ({ navigation, route }) => {
-
+    let [antreman, SetAntreman] = useMMKVStorage('ant',MMKV,[])
+    useEffect(()=>{
+SetAntreman(MMKV.getMap('ant'))
+    SetAntreman([
+        {
+            name:'GOGUS',
+            details:[
+                {
+                    isim:'Bench Press',
+                    rep:'12',
+                    set:'4',
+                    png:'../assets/png/benchpress.png',
+                    pngName:'BenchPress'
+                },
+                {
+                    isim:'Incline Bench Press',
+                    rep:'12',
+                    set:'4',
+                    png:'../assets/png/inclinepress.png',
+                    pngName:'InclinePress'
+                },
+                {
+                    isim:'Cable Fly',
+                    rep:'15',
+                    set:'4',
+                    png:'../assets/png/cablefly.png',
+                    pngName:'CableFly'
+                },
+                {
+                    isim:'Butter Fly',
+                    rep:'15',
+                    set:'4',
+                    png:'../assets/png/butterfly.png',
+                    pngName:'ButterFly'
+                }
+            ]
+        },
+        {
+            name:'OMUZ'
+        },
+        {
+            name:'KOL'
+        },
+        {
+            name:'BACAK'
+        },
+        {
+            name:'SIRT'
+        },
+    ])
+}
+    ,[])
+console.log(antreman)
     return (
 
         <SafeAreaView style={styles.arkaplan}>

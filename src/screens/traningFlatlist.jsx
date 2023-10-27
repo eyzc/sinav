@@ -17,6 +17,7 @@ import SmallRepIcon from "../assets/icons/smallRepIcon";
 import SmallSetIcon from "../assets/icons/smallSetIcon";
 const MMKV = new MMKVLoader().initialize()
 
+
 const imageResources = (imageName) => {
     const staticImage = {
         'BenchPress': require('../assets/png/benchpress.png'),
@@ -49,6 +50,38 @@ const imageResources = (imageName) => {
 }
 
 const TraningFlatlist = ({ navigation, route }) => {
+    const Arm = () =>{
+        if ( antreman[index].name == 'ARM') {
+           
+            return <View style={{...styles.sideView,backgroundColor:'white'}}>
+     <Text style={{...styles.sideTxt,color:'#DB8E1A'}}> İyi Antremanlar</Text>
+            </View>
+       
+           
+           
+        }else {
+          return  <View style={{...styles.sideView,backgroundColor:'white',}}>
+                <Text style={{...styles.sideTxt,color:'#DB8E1A',fontSize:24}}> İyi Antremanlar</Text>
+                <Text style={{...styles.sideTxt,color:'#DB8E1A',fontSize:12}}>Kol antremanıyla devam etmek ister misiniz?</Text>
+                <View style={{flexDirection:'row',justifyContent:'space-between'}}>
+                <TouchableOpacity
+                onPress={()=>{
+                    SetDetails(antreman[2].details)
+                    navigation.navigate('TraningFlatlist',{
+                        index:2
+                    })
+                }}
+                >
+                    <Text style={{...styles.sideTxt,color:'#DB8E1A',fontSize:16,marginRight:20}}>Evet</Text>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <Text style={{...styles.sideTxt,color:'#DB8E1A',fontSize:16,marginLeft:20}}>Hayır</Text>
+                </TouchableOpacity>
+                </View>
+               
+            </View>
+        }
+    }
     let [antreman, SetAntreman] = useMMKVStorage('ant', MMKV, [])
 
 
@@ -57,6 +90,7 @@ const TraningFlatlist = ({ navigation, route }) => {
 
     let [details, SetDetails] = useState(antreman[index].details)
     console.log(details)
+    
     return (
 
         <SafeAreaView style={styles.arkaplan}>
@@ -113,7 +147,7 @@ const TraningFlatlist = ({ navigation, route }) => {
                             <View style={{...styles.sideView,borderRadius:5,marginTop:10}}>
                             <Text style={styles.sideTxt}>{element.item.isim}</Text>
                             </View>
-                            
+                           
                         </TouchableOpacity>
                     )
                 }}
@@ -121,7 +155,7 @@ const TraningFlatlist = ({ navigation, route }) => {
             >
 
             </FlatList>
-
+<Arm></Arm>
 
         </SafeAreaView>
 
@@ -146,7 +180,9 @@ const styles = StyleSheet.create({
     sideView: {
         borderRadius: 20,
         backgroundColor: 'black',
-        padding: 5
+        padding: 5,
+        alignItems:'center',
+        marginTop:0
     },
     sideTxt: {
         fontSize: 24,
